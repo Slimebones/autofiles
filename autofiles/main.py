@@ -11,7 +11,7 @@ def main():
 
     clean_parser = action_subparser.add_parser("clean")
     clean_parser.add_argument(
-        "targetpath", type=Path
+        "targetpath", type=Path,
     )
 
 

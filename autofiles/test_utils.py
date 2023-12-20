@@ -43,5 +43,6 @@ def test_clean():
 
     try:
         AutoUtils.clean(vardir)
+        assert not list(Path(vardir).glob(".auto_*"))
     finally:
         shutil.rmtree(vardir)

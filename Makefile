@@ -1,15 +1,13 @@
-export PYTEST_SHOW=all
-export args
+export pytest_show=all
 export t=.
-
-testapp.serve:
-	cd tests/app && $(MAKE) dev
+export start=3
+export endsound
 
 test:
-	poetry run coverage run -m pytest -x --ignore=tests/app -p no:warnings --show-capture=$(PYTEST_SHOW) --failed-first $(args) $(t)
+	poetry run coverage run -m pytest -x --ignore=tests/app -p no:warnings --show-capture=$(pytest_show) --failed-first $(t)
 
 lint:
-	poetry run ruff $(args) $(t)
+	poetry run ruff $(t)
 
 check: lint test
 
@@ -18,21 +16,3 @@ coverage:
 
 coverage.html:
 	poetry run coverage html --show-contexts && python -m http.server -d htmlcov 8000
-
-docs.serve:
-	poetry run mkdocs serve -a localhost:3100 -w $(t)
-
-docs.build:
-	poetry run mkdocs build
-
-docs.serve_native:
-	python3 -m http.server -d site 3100
-
-docs.docker.build: docs.build
-	docker-compose -f docker-compose.docs.yml up -d --build --remove-orphans
-
-docs.docker.up:
-	docker-compose -f docker-compose.docs.yml up -d
-
-docs.docker.down:
-	docker-compose -f docker-compose.docs.yml down
