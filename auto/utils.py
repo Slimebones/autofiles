@@ -1,6 +1,5 @@
-from glob import glob
-import os
 from pathlib import Path
+
 from pykit.cls import Static
 
 from auto.file_extension import FileExtension, FileExtensionUtils
@@ -14,7 +13,7 @@ class AutoUtils(Static):
         extension: FileExtension,
         author: str,
         dir: Path,
-        content: str
+        content: str,
     ) -> None:
         if not dir.is_dir():
             raise ValueError(f"{dir} is not dir")
@@ -38,9 +37,7 @@ class AutoUtils(Static):
         if not dir.is_dir:
             raise ValueError(f"{dir} is not a directory")
 
-        files = glob(
-            ".auto_*", root_dir=dir, recursive=True, include_hidden=True
-        )
+        files = dir.rglob(".auto_*")
 
         for f in files:
-            os.remove(f)
+            Path(f).unlink()

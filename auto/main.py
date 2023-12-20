@@ -1,17 +1,17 @@
 import argparse
 from pathlib import Path
-from auto.utils import AutoUtils
 
 from auto.cli_action import AutoCLIAction
+from auto.utils import AutoUtils
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "action", type=AutoCLIAction, choices=list(AutoCLIAction)
+        "action", type=AutoCLIAction, choices=list(AutoCLIAction),
     )
     parser.add_argument(
-        "targetpath", type=Path
+        "targetpath", type=Path,
     )
     args = parser.parse_args()
 
