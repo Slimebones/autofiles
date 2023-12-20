@@ -20,12 +20,14 @@ class AutoUtils(Static):
 
         res = ""
         res += FileExtensionUtils.get(extension, author)
-        # an additional whiteline for the separation, although headers should
-        # have a default one
+        # an additional newline for the separation, despite the fact that the
+        # headers should have a default one
         res += "\n"
         res += content
+        # additional newline to conform with good file-endings
+        res += "\n"
 
-        target_path = Path(dir, f".auto_{name}")
+        target_path = Path(dir, f".auto_{name}.{extension.value}")
         with target_path.open("w+") as f:
             f.write(res)
 
