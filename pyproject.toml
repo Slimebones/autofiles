@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "slimebones.autofiles"
+name = "slimebones-autofiles"
 version = "0.1.0"
 description = ""
 authors = ["ryzhovalex <thed4rkof@gmail.com>"]
