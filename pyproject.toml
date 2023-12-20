@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "autofiles"
+name = "slimebones.autofiles"
 version = "0.1.0"
 description = ""
 authors = ["ryzhovalex <thed4rkof@gmail.com>"]
 readme = "README.md"
+packages = [
+    {include = "autofiles"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
