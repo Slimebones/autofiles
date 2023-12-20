@@ -2,7 +2,7 @@ from pathlib import Path
 
 from pykit.cls import Static
 
-from auto.file_extension import FileExtension, FileExtensionUtils
+from autofiles.file_extension import FileExtension, FileExtensionUtils
 
 
 class AutoUtils(Static):
@@ -15,6 +15,8 @@ class AutoUtils(Static):
         dir: Path,
         content: str,
     ) -> None:
+        if not dir.exists():
+            raise ValueError(f"dir {dir} does not exist")
         if not dir.is_dir():
             raise ValueError(f"{dir} is not dir")
 
@@ -36,6 +38,8 @@ class AutoUtils(Static):
         """
         Removes all .auto_ prefixed files in the given dir and all subdirs.
         """
+        if not dir.exists():
+            raise ValueError(f"dir {dir} does not exist")
         if not dir.is_dir:
             raise ValueError(f"{dir} is not a directory")
 

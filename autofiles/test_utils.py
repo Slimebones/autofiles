@@ -1,8 +1,8 @@
 import shutil
 from pathlib import Path
 
-from auto.file_extension import FileExtension
-from auto.utils import AutoUtils
+from autofiles.file_extension import FileExtension
+from autofiles.utils import AutoUtils
 
 
 def test_generate():

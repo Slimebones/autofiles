@@ -1,12 +1,9 @@
 [tool.poetry]
-name = "slimebones.auto"
+name = "autofiles"
 version = "0.1.0"
 description = ""
 authors = ["ryzhovalex <thed4rkof@gmail.com>"]
 readme = "README.md"
-packages = [
-    {include = "auto"}
-]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -19,7 +16,7 @@ pytest = "^7.4.3"
 pytest-asyncio = "^0.23.2"
 
 [tool.poetry.scripts]
-auto = "auto.main:main"
+autofiles = "autofiles.main:main"
 
 [build-system]
 requires = ["poetry-core"]
