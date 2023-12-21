@@ -29,21 +29,21 @@ class AutoUtils(Static):
         # additional newline to conform with good file-endings
         res += "\n"
 
-        target_path = Path(dir, f".auto_{name}.{extension.value}")
+        target_path = Path(dir, f"_auto_{name}.{extension.value}")
         with target_path.open("w+") as f:
             f.write(res)
 
     @staticmethod
     def clean(dir: Path) -> None:
         """
-        Removes all .auto_ prefixed files in the given dir and all subdirs.
+        Removes all _auto_ prefixed files in the given dir and all subdirs.
         """
         if not dir.exists():
             raise ValueError(f"dir {dir} does not exist")
         if not dir.is_dir:
             raise ValueError(f"{dir} is not a directory")
 
-        files = dir.rglob(".auto_*")
+        files = dir.rglob("_auto_*")
 
         for f in files:
             Path(f).unlink()

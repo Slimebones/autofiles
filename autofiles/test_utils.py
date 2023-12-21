@@ -14,7 +14,7 @@ def test_generate():
         content="print(1 + 1)\n",
     )
 
-    target = Path(Path.cwd(), "var/.auto_testing.py")
+    target = Path(Path.cwd(), "var/_auto_testing.py")
 
     try:
         with target.open("r") as f:
@@ -34,15 +34,15 @@ def test_clean():
     vardir = Path(Path.cwd(), "var")
 
     for path in [
-        Path(vardir, ".auto_test1.js"),
-        Path(vardir, ".auto_test2.py"),
-        Path(vardir, ".auto_test3.ts"),
+        Path(vardir, "_auto_test1.js"),
+        Path(vardir, "_auto_test2.py"),
+        Path(vardir, "_auto_test3.ts"),
     ]:
         with path.open("w+") as f:
             f.write("whocares")
 
     try:
         AutoUtils.clean(vardir)
-        assert not list(Path(vardir).glob(".auto_*"))
+        assert not list(Path(vardir).glob("_auto_*"))
     finally:
         shutil.rmtree(vardir)

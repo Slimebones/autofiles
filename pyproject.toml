@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "slimebones-autofiles"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["ryzhovalex <thed4rkof@gmail.com>"]
 readme = "README.md"
