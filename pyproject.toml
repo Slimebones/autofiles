@@ -1,16 +1,13 @@
 [tool.poetry]
-name = "slimebones-autofiles"
+name = "autofiles"
 version = "0.1.2"
 description = ""
 authors = ["ryzhovalex <thed4rkof@gmail.com>"]
 readme = "README.md"
-packages = [
-    {include = "autofiles"}
-]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-slimebones-pykit = "^0.4.14"
+pykit = { path = "../pykit", develop = true }
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.8"

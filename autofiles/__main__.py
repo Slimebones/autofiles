@@ -4,7 +4,6 @@ from pathlib import Path
 from autofiles.cli_action import AutoCLIAction
 from autofiles.utils import AutoUtils
 
-
 def main():
     parser = argparse.ArgumentParser()
     action_subparser = parser.add_subparsers(dest="action")
@@ -14,7 +13,6 @@ def main():
         "targetpath", type=Path,
     )
 
-
     args = parser.parse_args()
 
     match args.action:
@@ -22,7 +20,6 @@ def main():
             AutoUtils.clean(args.targetpath)
         case _:
             raise ValueError(f"action {args.action} not found")
-
 
 if __name__ == "__main__":
     main()
